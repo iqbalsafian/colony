@@ -40,8 +40,10 @@ const initialState = {
     ]
 };
 
-describe('Request reducers', () => {
+describe('Avatar List', () => {
   it('has a default state', () => {
+    const avatarList = initialState
+    const expectedAction = {}
     expect(rootReducer(undefined, {})).toEqual()
   })
 })
