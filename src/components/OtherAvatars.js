@@ -1,24 +1,22 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Avatar from './Avatar';
+import onClickOutside from 'react-onclickoutside';
 
 class OtherAvatars extends Component {
-  state = {
-    showOptions: false
-  }
-  hideOthers = () => {
-    this.props.hideOthers()
+  handleClickOutside() {
+    this.props.showOptions();
   }
   render() {
-    const { avatars } = this.props;
+    const { avatars } = this.props.redux.state;
     return(
-      <div>
+      <div style={{width:'280px', marginLeft:'auto', marginRight:'auto'}}>
         <div className="arrow_box">
           <div className="title">Choose your avatar</div>
           <ul>
             {
               avatars.map(avatar => <li key={avatar.id}>
-                <Avatar avatar={avatar} hideOthers={this.hideOthers} />
+                <Avatar avatar={avatar} showOptions={this.props.showOptions} />
               </li>)
             }
           </ul>
@@ -28,8 +26,17 @@ class OtherAvatars extends Component {
   }
 }
 
+const mergeProps = (stateProps, dispatchProps, ownProps) => {
+  return {
+    ...ownProps,
+    redux: {
+      state: stateProps
+    }
+  }
+}
+
 const mapStateToProps = state => {
   return { avatars: state.avatars };
 }
 
-export default connect(mapStateToProps)(OtherAvatars);
+export default connect(mapStateToProps, null, mergeProps)(onClickOutside(OtherAvatars));

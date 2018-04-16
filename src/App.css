@@ -1,9 +1,24 @@
 .App {
   text-align: center;
+  margin-top: 50px;
 }
 
 .avatar {
   border: 3px transparent rgba(255, 255, 255, 0);
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+}
+
+.avatar-initial {
+  border: 1px solid rgba(255, 255, 255, 0);
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+}
+
+.avatar-initial:hover {
+  border: 1px solid rgb(155, 160, 163);
   height: 60px;
   width: 60px;
   border-radius: 50%;
@@ -17,24 +32,35 @@
   margin: -0.2em 0 0 -0.2em;
 }
 
-.img-try{
-  border-radius: 50%;
-  border: 3px solid rgba(255, 255, 255, 0);
-}
-
-.img-try:hover {
-  border: 3px solid rgb(155, 160, 163);
-  -webkit-animation:turning_cw 5s infinite;
-  	-moz-animation:turning_cw 5s infinite;
-  	animation:turning_cw 5s infinite;
-}
-
 .circle {
   width: 60px;
   height: 60px;
   position: relative;
   border: 3px solid rgba(255,255,255,0);
   border-radius: 50%;
+}
+
+.circle:hover .avatar{
+  border: 3px solid rgb(122, 161, 178);
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  opacity: 0.8;
+  margin: -0.2em 0 0 -0.2em;
+}
+
+.circle:hover .overlay{
+  /*border: 3px solid rgb(122, 161, 178);*/
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  opacity: 1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  /*margin: 0.2em 0 0 0.2em;*/
 }
 
 .loader {
@@ -51,14 +77,6 @@
   margin: -0.2em 0 0 -0.2em;
 }
 
-.circle:hover {
-  border: 3px solid rgb(122, 161, 178);
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  /*margin: 0.2em 0 0 0.2em;*/
-}
-
 /* Safari */
 @-webkit-keyframes spin {
   0% { -webkit-transform: rotate(0deg); }
@@ -71,6 +89,8 @@
 }
 
 .circle-border {
+  margin-left: auto;
+  margin-right: auto;
   border-radius: 50%;
   display: inline-block;
   /*border: 0px solid rgb(155, 160, 163);*/
@@ -96,7 +116,7 @@
 }
 
 .title {
-  font: Source Sans Pro;
+  font-family: 'Source Sans Pro';
   color: rgb(249, 249, 249);
   size: 16px;
   margin: 14px 0;
@@ -107,12 +127,12 @@
 	position: relative;
   background: rgb(44, 48, 51);
 	border: 15px solid rgb(220, 220, 220);
-  /*filter: blur(10px);*/
+  opacity: 0.9;
   border-radius: 2px;
   width: 320px;
   margin: 0 auto;
+  margin-left: -35px;
   top: -5px;
-  /*z-index: -1;*/
 }
 
 .arrow_box:before {
@@ -148,10 +168,12 @@
 
 ul {
     list-style-type: none;
-    margin-left: -37px;
     overflow: hidden;
     text-align: left;
     border: 1px thin;
+    margin-left: auto;
+    margin-right: auto;
+    margin-left: -27px;
     /*background-color: #333333;*/
 }
 

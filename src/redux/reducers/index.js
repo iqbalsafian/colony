@@ -1,10 +1,10 @@
-import { CHANGE_AVATAR } from "../constants/action-types";
+import { CHANGE_AVATAR } from "../../redux/constants/action-types";
 
 const initialState = {
   currentAvatar: {
-    imageSrc: './avatar3.png',
-    label: 'Avatar 3',
-    id: 3
+    imageSrc: './avatar1.png',
+    label: 'Avatar 1',
+    id: 1
   },
   avatars: [
     {

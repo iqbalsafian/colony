@@ -5,20 +5,15 @@ import './App.css';
 
 class App extends Component {
   state = {
-    showOptions: false
+    showOptionsVar: false
   }
-  hideOthers = () => this.setState({showOptions: false})
-  showOthers = () => this.setState({showOptions:true})
+  showOptions = () => this.setState({showOptionsVar: !this.state.showOptionsVar})
   render() {
     return (
-      <div className="App"
-        //  onClick={() => this.state.showOptions ? this.setState({showOptions: false}) : null}
-         >
-           <CurrentAvatar showOthers={this.showOthers} />
+      <div className="App">
+         <CurrentAvatar showOptions={this.showOptions} />
         {
-          this.state.showOptions ?
-          <OtherAvatars hideOthers={this.hideOthers} /> :
-          null
+          this.state.showOptionsVar ? <OtherAvatars showOptions={this.showOptions} /> : null
         }
       </div>
     );

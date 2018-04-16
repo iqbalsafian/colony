@@ -27,15 +27,16 @@ const mapDispatchToProps = dispatch => {
 
 class Avatar extends Component {
   state = {
-    mouseOver: false,
-    mouseClick: false
+    mouseClick: false,
+    mouseOver: false
   }
 
   onSelected = (avatar) => {
-    this.setState({mouseClick: true});
+    this.setState({mouseClick: true, mouseOver: false});
     setTimeout(()=>{
       this.props.changeAvatar(avatar);
       this.setState({mouseClick: false});
+      this.props.showOptions();
     }, 2000)
   }
 
@@ -51,13 +52,13 @@ class Avatar extends Component {
           })
         }>
         </div>
-        <a>
+        <a tabIndex={avatar.id+1} onKeyPress={() => this.onSelected(avatar)} onClick={() => this.onSelected(avatar)}>
           <img
             src={avatar.imageSrc}
             alt={avatar.label}
-            onClick={() => this.onSelected(avatar)}
-            onMouseOver={()=>this.setState({mouseOver:true})}
-            className={classNames({'avatar': !isActive}, {'avatar-active': isActive})} />
+            className={classNames({'avatar': !isActive}, {'avatar-active': isActive})}
+          />
+          <div className={classNames({overlay: !this.state.mouseClick})}></div>
         </a>
       </div>
     )

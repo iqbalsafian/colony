@@ -5,9 +5,10 @@ class currentAvatar extends Component {
   render() {
     const { currentAvatar } = this.props.redux.state;
     return(
-      <div className="circle-border">
-        <img src={currentAvatar.imageSrc} alt={currentAvatar.label} className="avatar"
-        onClick={this.props.showOthers} />
+      <div style={{marginRight: 'auto', marginLeft:'auto'}}>
+        <a tabIndex="1" onClick={this.props.showOptions} onKeyPress={this.props.showOptions} >
+          <img src={currentAvatar.imageSrc} alt={currentAvatar.label} className="avatar-initial" />
+        </a>
       </div>
     )
   }
