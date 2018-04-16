@@ -33,17 +33,15 @@ class Avatar extends Component {
 
   onSelected = (avatar) => {
     this.setState({mouseClick: true});
-    this.props.changeAvatar(avatar);
     setTimeout(()=>{
+      this.props.changeAvatar(avatar);
       this.setState({mouseClick: false});
-      // this.props.hideOthers();
-    }, 3000)
+    }, 2000)
   }
 
   render() {
     const { avatar } = this.props;
     const { currentAvatar } = this.props.redux.state;
-    console.log(currentAvatar);
     const isActive = (avatar.id === currentAvatar.id);
     return(
       <div className="circle">

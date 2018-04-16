@@ -1,6 +1,6 @@
 import { CHANGE_AVATAR } from "../constants/action-types";
 
-var initialState = {
+const initialState = {
   currentAvatar: {
     imageSrc: './avatar3.png',
     label: 'Avatar 3',
@@ -43,8 +43,12 @@ var initialState = {
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
     case CHANGE_AVATAR:
-      state.currentAvatar = action.payload;
-      return state;
+      const currentAvatar = action.payload;
+      const avatars = state.avatars;
+      return {
+        currentAvatar,
+        avatars
+      };
     default:
       return state;
   }
