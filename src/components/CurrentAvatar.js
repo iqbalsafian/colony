@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
-class currentAvatar extends Component {
+class CurrentAvatar extends Component {
   render() {
     const { currentAvatar } = this.props.redux.state;
     return(
@@ -12,6 +13,11 @@ class currentAvatar extends Component {
       </div>
     )
   }
+}
+
+CurrentAvatar.propTypes = {
+  currentAvatar: PropTypes.object,
+  showOptions: PropTypes.func
 }
 
 const mapStateToProps = state => {
@@ -28,4 +34,4 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
   }
 }
 
-export default connect(mapStateToProps, null, mergeProps)(currentAvatar);
+export default connect(mapStateToProps, null, mergeProps)(CurrentAvatar);

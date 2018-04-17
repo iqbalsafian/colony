@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import Avatar from './Avatar';
 import onClickOutside from 'react-onclickoutside';
 
@@ -24,6 +25,11 @@ class OtherAvatars extends Component {
       </div>
     )
   }
+}
+
+OtherAvatars.propTypes = {
+  showOptions: PropTypes.func,
+  avatars: PropTypes.array
 }
 
 const mergeProps = (stateProps, dispatchProps, ownProps) => {

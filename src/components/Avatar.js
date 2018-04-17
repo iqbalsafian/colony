@@ -1,29 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
 import { changeAvatar } from '../redux/actions/index.js';
-
-const mapStateToProps = state => {
-  return { currentAvatar: state.currentAvatar};
-}
-
-const mergeProps = (stateProps, dispatchProps, ownProps) => {
-  return {
-    ...ownProps,
-    ...dispatchProps,
-    redux: {
-      state: stateProps
-    }
-  }
-}
-
-const mapDispatchToProps = dispatch => {
-  return {
-    changeAvatar: avatar => {
-      dispatch(changeAvatar(avatar))
-    }
-  }
-}
 
 class Avatar extends Component {
   state = {
@@ -62,6 +41,34 @@ class Avatar extends Component {
         </a>
       </div>
     )
+  }
+}
+
+Avatar.propTypes = {
+  currentAvatar: PropTypes.object,
+  avatar: PropTypes.object,
+  showOptions: PropTypes.func
+}
+
+const mapStateToProps = state => {
+  return { currentAvatar: state.currentAvatar};
+}
+
+const mergeProps = (stateProps, dispatchProps, ownProps) => {
+  return {
+    ...ownProps,
+    ...dispatchProps,
+    redux: {
+      state: stateProps
+    }
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    changeAvatar: avatar => {
+      dispatch(changeAvatar(avatar))
+    }
   }
 }
 
