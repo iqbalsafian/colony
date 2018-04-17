@@ -1,6 +1,6 @@
 import { CHANGE_AVATAR } from "../../redux/constants/action-types";
 
-const initialState = {
+export const initialState = {
   currentAvatar: {
     imageSrc: './avatar1.png',
     label: 'Avatar 1',

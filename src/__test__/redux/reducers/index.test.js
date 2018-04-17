@@ -1,4 +1,6 @@
-import { CHANGE_AVATAR } from "../redux/constants/action-types";
+// import { CHANGE_AVATAR } from "../../../redux/constants/action-types";
+import rootReducer from '../../../redux/reducers/index';
+import CHANGE_AVATAR from '../../../redux/constants/action-types';
 
 const initialState = {
     currentAvatar: {
@@ -40,10 +42,17 @@ const initialState = {
     ]
 };
 
-describe('Avatar List', () => {
+describe('Avatar List Reducer', () => {
   it('has a default state', () => {
     const avatarList = initialState
-    const expectedAction = {}
-    expect(rootReducer(undefined, {})).toEqual()
+    expect(avatarList).toEqual(initialState)
+  })
+
+  it('should handle CHANGE_AVATAR', () => {
+    const { currentAvatar } = initialState.currentAvatar;
+    expect(rootReducer([], {
+      action: CHANGE_AVATAR,
+      payload: currentAvatar
+    })).not.toEqual(currentAvatar)
   })
 })
